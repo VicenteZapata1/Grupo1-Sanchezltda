@@ -1,0 +1,160 @@
+Ing Software I
+
+Datos importantes:
+
+-Software que se pueda agregar los datos, contabilidad y registro de los datos, ver el flujo diario, cuanto dinero hay al dia de hoy, deuda de los clientes, clientes que compran frecuentemente, para realizar estadisticas. 
+
+-Hay que saber de contabilidad y gestion.
+-La contabilidad se lleva de forma externa.
+-Cuentas de balance y estados resultados asociadas.
++Se realiza una venta, se tiene un costo fijo, se tiene un margen, y el margen se va al resultado, como el costo
+-Sacar informaciÛn del dinero en el momento con el software
+-Se usan planillas para hacer controles desde la producciÛn
+-Todos los procesos dentro de una empresa son una cadena
+- Los modulos de inventario
+-registro saldo inicial, movimientos, saldos finales
+-Contabilizar planchas y despuntes
+-Remuneraciones no se vera, es pega del contador.
+-El tema del inventario debe estar implementado en el software.
+-Las planchas se miden en milimetros.
+-Las planchas pueden ser de 0,1 a 10 milimetros de espesor
+-Para hacer corte y plegado
+-Plegado: doblar el material
+-Material restante, se usa a veces, no siempre
+-*Clasificar de forma separada el despunte con lo que no se ocupara, dejando como clasificado despunte lo que se usarÅE
+
+-principalmente se ve el inventario por kilo
+-Precio x Kilo
+- ver medidas estandar dependiendo del espesor (IDEA)
+-*Realizar inventario de forma manual, definiendo largo, ancho, espesor
+-*Ver todos los materiales que se quieren introducir dentro del inventario
+-*Ver si se puede definir por medidas o por kilo
+* Se puede realizar la conversion con las medidas, el inventario podria realizar esto automaticamente y asi trabajar con kilos
+- Definir por tipo de material con los que se trabaje en la empresa
+-Hay estandares de compras dependiendo del proveedor.
+Formula para sacar el kilo: Largo x Ancho x Espesor x 8 
+- El despunte se descuenta por la plancha a la cual se le realizo el despunte
+* Por cada material habra una opcion de despunte, la cual sumara cada despunte que se haga por plancha, asi se restara la plancha y se le sumara el despunte reutilizable.
+-Se haga una baja en el inventario por kilos por planchas
+-Separar por material.
+-No hay registro de inventario en el balance.
+-Todos los procesos estan asociados.
+- Los clientes llegan y piden cotizacion
+-Envian informacion por correo o dejan especificaciones a mano alzada
+-Hay clientes que envian especificaciones en AUTOCAD
+-Llega correo del cliente, se envia la cotizacion al cliente.
+-AUTOCAD es un software de dibujo tecnico
+-Se ve posible forma de poder integrar AUTOCAD al software para que tome las medidas de forma automatica, ademas de poder visualizar el dibujo desde el software.
+-La mayoria de los procesos pasan por la maquina laser.
+-La mayoria de las cosas que mandan a la empresa deben pasar por el AUTOCAD
+- Se buscan medidas precisas en los trabajos
+-Llega el correo con el AUTOCAD, dibujo, con lo que se quiera cotizar
+-Puede pasar que en los correos lleguen las especificaciones dichas de forma textual
+-Todo el papeleo sobre cotizaciones, se encuentra en papel hoy en dia en la empresa
+- Si el cliente dice que si, se le pide la orden de compra, o al menos se le pide un correo confirmando que querra que  la empresa le haga la pega.
+- En el registro que tiene la empresa sobre trabajos realizados se encuentra el numero OTE, el cliente, la orden de compra,
+- Ha ciertos clientes se le pide un porcentaje del trabajo como anticipo, esta informacion es importante tenerla a mano
+- La empresa hoy en dia para tener a la mano esta informacion utiliza excel, cruzando datos.
+- si el cliente dice que si con el anticipo, el resto lo paga contra entrega o se deja un cheque a 30 dias.
+- La informacion de dinero (Delicada), se busca que este dentro de una base de datos
+-  Se le da la propuesta de pago luego de que acepta la cotizacion el cliente
+- Los clientes mas grandes que realizan un contrato, pagan con factura (Varia los dias)
+* Buscan la pega, se les hace la factura y luego pagan
+- Diferentes alternativas de pago
+- Se busca registrar como pagara el cliente el trabajo, registrar el dinero entregado (anticipo) y como pagara el restante
+- Indicar detalles de cada forma de pago dentro del software
+Cheques, anticipo, factura, etc
+-N cheque, banco, datos principales de los cheques
+-Tener en el software la opcion de registrar las formas de pago de cada cliente.
+- Hay clientes especiales, con distintos convenios de pago (Importante tenerlo)
+-La persona de recepcion al momento de realizar una factura, debe tener la informacion del cliente para saber la forma de pago del cliente (Despues de 30- 60 dias, entre otras opciones)
+- al momento de cobrar (Termino del trabajo) se le envia un correo al cliente diciendole que debe pagar
+- OTE (orden de trabajo): debe tener la misma informacion que la orden de compra, dice que numero de orden de compra es la del cliente, esta sale al taller junto con los planos (nada mas)
+- Se busca tener toda esa informacion dentro del software
+* Se puede tener una pestana donde se ubique la informacion de los clientes
+- Los anticipos son variables, dependen de la administracion
+- pueden haber pagos en efectivo por parte del cliente
+-Hacer factoring
+- Factoring: Adelantan el dinero a cambio de un documento (Factora o cheque), el porcentaje de gasto no es fijo, es un porcentaje del total de la factura, pero depende de los antecedentes financieros del cliente,
+cliente riegoso (pequena empresa): tasa mas alta para la empresa.
+cliente menos riesgo (grandes empresas) : Cobran la factura sin problema
+*Los dibujos a mano alzada pasan a AUTOCAD siempre y cuando pasen por el laser
+- Se busca tener toda la info en el software, buscar por numero de OTE, que indique el cliente relacionado a ese numero de OTE, enlazarlo con la orden de compra, y que haciendo click en algun boton muestre OTE, la orden de compra etc
+-Cotizacion es una planilla en excel que se pasa a pdf y se envia al cliente
+- Cuando uno ingresa el AUTOCAD al software del laser, este entrega cuanto se demorara en realizar el trabajo, lo que sirve para realizar la cotizacion.
+- Se le agrega mas tiempo al que entrega el software del laser, el tiempo extra es calculado por una formula que esta en una planilla excel en la empresa.
+- La finalidad de lo anterior es que cualquiera pueda cotizar
+- Problema grave con las cotizaciones, ya que, solo una persona realiza las cotizaciones
+- No hay formulas para cotizar lo que no se realiza con corte laser
+- cuando se realiza el la cotizacion en lo que no es laser, se le pone un precio al kilo por el corte y plegado, pero no se considera costos directos e indirectos.
+- Las que usarian el software  serian 3 personas mas o menos 
+- Modulos externos requeridos, inventario con las planchas y las diferentes cotizaciones con laser.
+- Los productos que se hacen en la empresa no son solo laser, corte y plegado, tambien se cuenta la soldadura, mano de obra, pintura, productos externos requeridos por la empresa, etc (Se tomaran como costos adicionales), se deberan calcular y anadirlos al costo del producto
+-El tema de los flujos tambien debe ir en el software a crear, para saber cuanto dinero hay, cuanto dinero no hay y cuanto dinero hay por recuperar, 
+- Se busca tener una base de datos con los clientes
+- las cotizaciones que se hayan realizado, deben tener los archivos de plano y OTE para visualizar directamente
+- se podra llegar a esa informacion a traves del pago, viendolo con la cartola del banco colocando los datos de la cartola del banco o efectivo
+- Lo ideal seria subir o escanear la cartola, se pide visualizar documento
+- Cuando se realiza la OTE o la cotizacion colocar la fecha en que debe finalizar el trabajo.
+- Definir cuanto efectivo se recibe a diario, en que fecha caen los documentos
+-Si se tiene un cierto monto de dinero en documentos, definir cuando me llegara una proporciÛn del monto total en fechas, esto servira para poder planificar los flujos
+-Se quiere saber del cliente cuantas cotizaciones mando a hacer, cuantas no, cuales son las cotizaciones, la orden de trabajo asociada a esa cotizacion, la orden de compra asociada a esa cotizacion, la forma de pago asociada a la cotizacion y todo el flujo mencionado anteriormente
+- cuando se hace la OTE, en la misma cotizacion, se le dice al cliente cuanto tiempo se tardara la empresa en terminar el trabajo
+problema: los trabajos no estan saliendo en los plazos
+- Se da vuelta la planificacion por cambios en esta misma, ya sea por clientes que llegan y se les da prioridad a ellos que a los que ya estan agendados
+* Tener un tipo de alerta para avisar cuando se a cerca una fecha de entrega
+-Las cotizaciones se hacen en excel y luego se imprimen en pdf
+-El software irÅEactualizando los excel que esten
+-Se debe exportar la informaciÛn ingresada
+- Poder ver las cotizaciones, la orden de compra, de trabajo, desde el software es una de las tareas a realizar, planos asociados a los clientes.
+- Antes de actualizar se debe confirmar los cambios, para ver que no hallan errores
+-la cotizaciÛn tiene un formato especifico
+-Tener respaldo en el software de las transferencias hechas por los clientes
+- el laser no se cobra por kilo
+-minimo por corte en gillotina (7000 la hora)
+-cotizacion separar todas las variables y colocar los precios.
+- lo que no se ocupe se coloca en cero
+- en base al tiempo que se demore el trabajo, se le colocan los costos y se le suma
+- colocan todos los items que se deben estimar para una cotizacion y que se coloquen los datos a mano
+- Beneficio a los trabajadors, hacer trabajos despues de las horas de trabajo
+-Riesgo inminente, saber (contabilizar) cuanto material ocupa cada trabajador
+-Inventario, realizarlo una vez por mes
+-Controles de inventarios semanales
+- Para hacer controles necesitamos un punto de inicio y final y asi ver que falta o no 
+- Procedimientos en caso de perdida de material es decision administrativa
+- Registrar en forma de resena las personas que se quedan realizando algun trabajo personal, contabilizando los materiales dispuestos para esa persona
+- Minimo se requiere un inventario de las planchas, las cotizaciones de laser y maestranza
+- Tener en cuenta los costos asociados que tienen algunos trabajos
+-Tener un item otros para agregar los costos asociados a los trabajos
+- Entender que la empresa en la cual estamos trabajando es una empresa de servicios (son proveedores)
+- Carpeta de trabajador (Cosas minimas que debe tener).
+- Pacto de horas extras
+- importante tener toda la informacion de los trabajadores (ISAPRES, AFP,certificado de residencia, etc)
+- Requisito de la empresa, tener todos los papeles basicos de trabajo
+- Los empleados firman el reglamento interno al ingresar a la empresa
+- Entrega de EBP (Entrega elemento proteccion personal)
+- No hay registros de las herramientas que se le pasan a los trabajadores
+- Las herramientas no se estan comprando ni con boleta ni con facturas
+- Se pierden y roban las cosas (herramientas)
+- Riesgo cliente habla con el trabajador directamente
+- Se llevaba un horario de jornada donde se especificaban los trabajos que se realizaban para las distintas empresas
+- No habia control de los tiempos
+- se lleva en una planilla de planificacion
+- Calendario de trabajo (Ver la implementacion o seguimiento de este con el software)
+- flujogramas sirven para entender los procesos de una empresa
+- Primero hay que tener un flujo para entender los procesos
+- Cuantos dias pasan desde que solicitan la cotizacion al envio de la cotizacion (buscar minimizar el tiempo de realizacion de la cotizacion)
+- envio de la cotizacion (la acepto o no? cuanto es el plazo?, despues de 5 dias se espera y si pasa la fecha se envia a las cotizaciones que no se sacan)
+- puede pasar que tomen los trabajos despues de los 5 dias 
+- hacer preguntas durante el flujo para encontrar los riesgos, identificando los riesgos, buscaremos como encontrarlos y solucionarlos.
+
+
+
+
+
+
+
+
+
+
+
