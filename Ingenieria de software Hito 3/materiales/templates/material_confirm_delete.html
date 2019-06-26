@@ -1,0 +1,20 @@
+{% extendes 'base.html' %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1 class="display-4">{{material.identificador}}</h1>
+    <p class="lead">{{material.nombre}}</p>
+    <hr class="my-4">
+    <p>{{material.cantidad}} cantidad</p>
+    <p>{{material.ancho}} ancho</p>
+    <p>{{material.largo}} largo</p>
+    <p>{{material.espesor}} espesor</p>
+    <p>¿desea borrar el material?</p>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Confirmar borrado</button>
+    </form>
+</div>
+
+{% endblock %}

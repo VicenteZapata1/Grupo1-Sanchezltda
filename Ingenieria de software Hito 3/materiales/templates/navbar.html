@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:#204d74;">
+    <a class="navbar-brand" href="{% url 'index' %}" style="color:#ffffff">Gestión de Inventario</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+          {% if user.is_authenticated %}
+              <li class="nav-item active">
+                  <a class="nav-link" href="/materiales" style="color:#ffffff">Gestión de Materiales <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/epps" style="color:#ffffff">Gestión de EPP</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/herramientas" style="color:#ffffff">Gestión de Herramientas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/insumos" style="color:#ffffff">Gestión de Insumos</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'logout' %}" style="color:#ffffff">Salir</a>
+              </li>
+      </ul>
+       <ul class="navbar-nav ml-auto nav-flex-icons">
+      <li class="nav-item avatar">
+        <a class="nav-link p-0" href="#">
+          <img src="https://pbs.twimg.com/media/D9y4ymcXsAANSYl.png" alt="avatar image" height="35" style="display:block; margin-left:-135px;">
+        </a>
+      </li>
+    </ul>
+      <span class="navbar-text" style="color:#ffffff">
+          {{ user.username }}
+      </span>
+      {% else %}
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}" style="color:#ffffff">Iniciar Sesión</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'signup' %}" style="color:#ffffff">Registrarse</a>
+          </li>
+      </ul>
+          <ul class="navbar-nav ml-auto nav-flex-icons">
+      <li class="nav-item avatar">
+        <a class="nav-link p-0" href="#">
+          <img src="https://pbs.twimg.com/media/D9y4ymcXsAANSYl.png" alt="avatar image" height="35" style="display:block; margin-left:-135px;">
+        </a>
+      </li>
+    </ul>
+      {% endif %}
+    </div>
+  </nav>
