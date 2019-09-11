@@ -1,0 +1,96 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:#204d74;">
+   
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="{% url 'index' %}" style="color:#ffffff">Inventario</a>
+    	<ul class="dropdown-menu">
+            <li class="nav-item active">
+                  <a class="nav-link" href="/materiales">Gestión de Materiales <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/epps">Gestión de EPP</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/herramientas">Gestión de Herramientas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/insumos">Gestión de Insumos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/#">Despuntes</a>
+              </li>
+          </ul>
+
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="{% url 'index' %}" style="color:#ffffff">&nbsp&nbspFacturación</a>
+    	<ul class="dropdown-menu">
+            <li class="nav-item active">
+                  <a class="nav-link" href="/materiales">Opción 1<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/epps">Opción 2</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/herramientas">Opción 3</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/">Opción 4</a>
+              </li>
+          </ul>
+
+     <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="{% url 'index' %}" style="color:#ffffff">&nbsp&nbspCotización</a>
+    	<ul class="dropdown-menu">
+            <li><a href="#">Opción 1</a></li>
+            <li><a href="#">Opción 2</a></li>
+            <li><a href="#">Opción 3</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Opción 4</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Opción 5</a></li>
+          </ul>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+          {% if user.is_authenticated %}
+          	  <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}" style="color:#ffffff">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+          </li>
+          	  <li class="nav-item">
+                  <a class="nav-link" href="/" style="color:#ffffff">Inicio</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'logout' %}" style="color:#ffffff">Salir</a>
+              </li>
+      </ul>
+       <ul class="navbar-nav ml-auto nav-flex-icons">
+      <li class="nav-item avatar">
+        <a class="nav-link p-0" href="/">
+          <img src="https://pbs.twimg.com/media/D9y4ymcXsAANSYl.png" alt="avatar image" height="35" style="display:block; margin-left:-135px;">
+        </a>
+      </li>
+    </ul>
+      <span class="navbar-text" style="color:#ffffff">
+          {{ user.username }}
+      </span>
+      {% else %}
+      	  <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}" style="color:#ffffff">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}" style="color:#ffffff">Iniciar Sesión</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'signup' %}" style="color:#ffffff">Registrarse</a>
+          </li>
+      </ul>
+          <ul class="navbar-nav ml-auto nav-flex-icons">
+      <li class="nav-item avatar">
+        <a class="nav-link p-0" href="/#">
+          <img src="https://pbs.twimg.com/media/D9y4ymcXsAANSYl.png" alt="avatar image" height="35" style="display:block; margin-left:-135px;">
+        </a>
+      </li>
+    </ul>
+      {% endif %}
+    </div>
+  </nav>

@@ -1,0 +1,17 @@
+{% extendes 'base.html' %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1 class="display-4">{{epp.identificador}}</h1>
+    <p class="lead">{{epp.nombre}}</p>
+    <hr class="my-4">
+    <p>{{epp.cantidad}} cantidad</p>
+    <p>¿desea borrar el Equipo de Protección Personal?</p>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Confirmar borrado</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extendes 'base.html' %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1 class="display-4">{{herramienta.identificador}}</h1>
+    <p class="lead">{{herramienta.nombre}}</p>
+    <hr class="my-4">
+    <p>{{herramienta.cantidad}} cantidad</p>
+    <p>¿desea borrar la herramienta?</p>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-secondary">Confirmar borrado</button>
+    </form>
+</div>
+
+{% endblock %}
