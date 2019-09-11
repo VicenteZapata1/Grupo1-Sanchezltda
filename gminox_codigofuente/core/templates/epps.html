@@ -7,11 +7,11 @@
     {% for epp in epps %}
         <div class="card" style="width: 18rem">
             <div class="card-body">
-                <h5 class="card-title">{{ epp.identificador }}</h5> 
+                <h5 class="card-title">{{ epp.id }}</h5> 
                 <p class="card-text">{{ epp.nombre }}</p>
                 <p>Cant:    {{epp.cantidad}} </p>
                 
-                <a href="/epp/{{ epp.identificador }}/" class="card-link">Actualizar/Borrar</a>
+                <a href="/epp/{{ epp.id }}/" class="card-link">Actualizar/Borrar</a>
             </div>
         </div>
     {% endfor %}

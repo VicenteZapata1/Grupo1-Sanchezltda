@@ -7,12 +7,12 @@
     {% for insumo in insumos %}
         <div class="card" style="width: 18rem">
             <div class="card-body">
-                <h5 class="card-title">{{ insumo.identificador }}</h5> 
+                <h5 class="card-title">{{ insumo.id }}</h5> 
                 <p class="card-text">{{ insumo.nombre }}</p>
                 <p class="card-text">medida:    {{ insumo.medida }}</p>
                 <p class="card-text">cant:  {{ insumo.cantidad }}</p>
                 
-                <a href="/insumo/{{ insumo.identificador }}/" class="card-link">Actualizar/Borrar</a>
+                <a href="/insumo/{{ insumo.id }}/" class="card-link">Actualizar/Borrar</a>
             </div>
         </div>
     {% endfor %}

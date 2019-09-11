@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Despuntes Disponibles</h1>
+    <div class="container">
+        <div class="row mt-5 justify-content-center">
+    {% for despunte in despuntes %}
+        <div class="card" style="width: 18rem">
+            <div class="card-body">
+                <h5 class="card-title">{{ despunte.id }}</h5> 
+                <p class="card-text">{{ despunte.nombre }}</p>
+                
+                <a href="/despunte/{{ despunte.id }}/" class="card-link">Detalle</a>
+            </div>
+        </div>
+    {% endfor %}
+        </div>
+    </div>
+    <a class="btn btn-secondary btn-lg" href="/despunte/create/" role="button">Agregar Material</a>
+{% endblock %}
