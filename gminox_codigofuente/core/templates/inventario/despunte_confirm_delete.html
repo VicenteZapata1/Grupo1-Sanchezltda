@@ -1,0 +1,20 @@
+{% extendes 'base.html' %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1 class="display-4">{{despunte.id}}</h1>
+    <p class="lead">{{despunte.nombre}}</p>
+    <hr class="my-4">
+    <p>{{despunte.cantidad}} cantidad</p>
+    <p>{{despunte.ancho}} ancho</p>
+    <p>{{despunte.largo}} largo</p>
+    <p>{{despunte.espesor}} espesor</p>
+    <p>¿desea borrar el despunte?</p>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Confirmar borrado</button>
+    </form>
+</div>
+
+{% endblock %}

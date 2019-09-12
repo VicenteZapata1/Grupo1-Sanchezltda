@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">{{herramienta.nombre}}</h1>
+    <a class="btn btn-secondary btn-lg" href="/herramienta/{{ herramienta.id }}/update" role="button">Actualizar</a>
+    <a class="btn btn-secondary btn-lg" href="/herramienta/{{ herramienta.id }}/delete" role="button">Borrar</a>
+</div>
+{% endblock %}

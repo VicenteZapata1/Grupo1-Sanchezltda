@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Insumos Disponibles</h1>
+    <div class="container">
+        <div class="row mt-5 justify-content-center">
+    {% for insumo in insumos %}
+        <div class="card" style="width: 18rem">
+            <div class="card-body">
+                <h5 class="card-title">{{ insumo.id }}</h5> 
+                <p class="card-text">{{ insumo.nombre }}</p>
+                <p class="card-text">medida:    {{ insumo.medida }}</p>
+                <p class="card-text">cant:  {{ insumo.cantidad }}</p>
+                
+                <a href="/insumo/{{ insumo.id }}/" class="card-link">Actualizar/Borrar</a>
+            </div>
+        </div>
+    {% endfor %}
+        </div>
+    </div>
+    <a class="btn btn-secondary btn-lg" href="/insumo/create/" role="button">Agregar Insumo</a>
+{% endblock %}
