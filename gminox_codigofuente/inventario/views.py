@@ -126,3 +126,7 @@ class DespunteDelete(DeleteView):
     model = Despunte
     template_name='./despunte_form.html'
     success_url = reverse_lazy('despuntes')        
+
+class BuscarDespunte(TemplateView):
+    def get(self, request, **kwargs):
+        return render(request, 'despunte_buscar.html', {'despuntes': Despunte.despuntes.all()})
