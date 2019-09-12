@@ -4,8 +4,16 @@ from .models import Material,EPP,Herramienta,Insumo,Despunte
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.conf import settings
+from django.conf.urls.static import static
 
 # Create your views here.
+
+urlpatterns = [
+    # ... the rest of your URLconf goes here ...
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+
 class HomeMaterialesView(LoginRequiredMixin,TemplateView):
     def get(self, request, **kwargs):
         return render(request, 'inventario/materiales.html', {'materiales': Material.materiales.all()})
