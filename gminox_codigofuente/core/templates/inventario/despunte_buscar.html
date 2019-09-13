@@ -1,13 +1,36 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
-<div class="jumbotron">
-    <h1 class="display-4">{{despunte.nombre}}</h1>
-    <hr class="my-4">
-    <p>Ancho(milimetro):   {{despunte.ancho}} </p>
-    <p>Largo(milimetro):   {{despunte.largo}} </p>
-    <p>Espesor(milimetro):     {{despunte.espesor}} </p>
-    <a class="btn btn-secondary btn-lg" href="/despunte/{{ despunte.id }}/update" role="button">Actualizar</a>
-    <a class="btn btn-secondary btn-lg" href="/despunte/{{ despunte.id }}/delete" role="button">Borrar</a>
-</div>
+    <form method="POST" action="/despunte/buscar/detalles/">
+        {% csrf_token %}
+        <div class="container">
+            <h2>Ingrese las medidas del trabajo</h2>
+            <div class="row">
+            <div class="col-xs-2">
+            <br/>
+            <label>Nombre de Material</label>
+            <input class="typeahead form-control" type="text" placeholder="Buscar Nombre...." name="nombre" id="nombre">
+            <label>Largo</label>
+            <input class="typeahead form-control" type="text" placeholder="Buscar Largo...." name="largo" id="largo">
+            <label>Ancho</label>
+            <input class="typeahead form-control" type="text" placeholder="Buscar Ancho...." name="ancho" id="ancho">
+            <label>Espesor</label>
+            <input class="typeahead form-control" type="text" placeholder="Buscar Espesor...." name="espesor" id="espesor">
+            </div>
+            </div>
+        </div>
+        <td colspan="2">
+            <!--<input type="submit"> -->
+            <input type="submit" class="btn btn-primary btn-sm" style="background-color:#204d74">
+        </td>
+    </form>
+<!--<div class="jumbotron">
+
+    <ul class="list-group">
+        <li class="list-group-item">Ancho(milimetro):   {{despunte.ancho}}</li>
+        <li class="list-group-item">Largo(milimetro):   {{despunte.largo}} </li>
+        <li class="list-group-item">Espesor(milimetro):     {{despunte.espesor}} </li>
+      </ul>
+</div> -->
 {% endblock %}

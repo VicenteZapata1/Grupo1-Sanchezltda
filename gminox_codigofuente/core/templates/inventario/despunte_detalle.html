@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>  
+        <th scope="col">Material</th>
+        <th scope="col">Largo(mm)</th>
+        <th scope="col">Ancho(mm)</th>
+        <th scope="col">Espesor(mm)</th>
+      </tr>
+    </thead>
+    {% for despunte in despuntes %}    
+    <tbody>
+      <tr>
+        <th scope="row">{{despunte.id}}</th>
+        <td>{{despunte.nombre}}</td>
+        <td>{{despunte.largo}}</td>
+        <td>{{despunte.ancho}}</td>
+        <td>{{despunte.espesor}}</td>
+      </tr>
+      {% endfor %}  
+    </tbody>
+  </table>
+  <a type="button" class="btn btn-primary btn-sm" style="background-color:#204d74"  href="/despunte/buscar/" >Volver</a>
+
+{% endblock %}

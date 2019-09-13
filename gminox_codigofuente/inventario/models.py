@@ -53,5 +53,12 @@ class Despunte(models.Model):
     espesor=models.IntegerField()
     despuntes=models.Manager()
 
+    def buscar_despuntes(nombre,largo,ancho,espesor):
+        despuntes=[]
+        datos=Despunte.despuntes.raw("SELECT * FROM inventario_despunte WHERE nombre LIKE '%{0}%' and largo >= '{1}' and ancho >= '{2}' and espesor = '{3}'".format(nombre, largo, ancho, espesor))
+        for despunte in datos:
+            despuntes.append(despunte)
+        return despuntes
+    
     def __str__(self):
         return "{}".format(self.nombre)
