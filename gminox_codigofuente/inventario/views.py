@@ -133,8 +133,22 @@ class DespunteUpdate(UpdateView):
 class DespunteDelete(DeleteView):
     model = Despunte
     template_name='./inventario/despunte_form.html'
-    success_url = reverse_lazy('despuntes')        
+    success_url = reverse_lazy('despuntes')
+
 
 class BuscarDespunte(TemplateView):
-    def get(self, request, **kwargs):
-        return render(request, 'inventario/despunte_buscar.html', {'despuntes': Despunte.despuntes.all()})
+    model = Despunte
+    template_name='./inventario/despunte_buscar.html'
+    fields = ['nombre','largo','ancho','espesor']
+
+
+class BuscarDespunteDetalle(TemplateView):
+    def post(self, request, **kwargs):
+        nombre=request.POST.get("nombre")
+        largo=request.POST.get("largo")
+        ancho=request.POST.get("ancho")
+        espesor=request.POST.get("espesor")        
+        datos=Despunte.buscar_despuntes(nombre,largo,ancho,espesor)
+        for dato in datos:
+            print(dato)
+        return render(request, 'inventario/despunte_detalle.html', {'despuntes':datos})

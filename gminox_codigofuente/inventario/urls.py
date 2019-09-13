@@ -28,5 +28,6 @@ urlpatterns = [
     url(r'^despunte/(?P<pk>\d+)/update/$', views.DespunteUpdate.as_view(success_url='/despuntes/'),name='despunte_update'),
     url(r'^despunte/(?P<pk>\d+)/delete/$', views.DespunteDelete.as_view(success_url='/despuntes/'),name='despunte_delete'),
     re_path(r'^despunte/(?P<id>[0-9]{1})/$', views.DetalleDespunteView.as_view(),name="detalle"),
-    re_path(r'^despunte/buscar/$', views.BuscarDespunte.as_view(),name ='buscar_despunte')
+    re_path(r'^despunte/buscar/$', views.BuscarDespunte.as_view(),name ='buscar_despunte'),
+    re_path(r'^despunte/buscar/detalles/', views.BuscarDespunteDetalle.as_view(),name ='buscar_despunte_detalle'),
 ]
