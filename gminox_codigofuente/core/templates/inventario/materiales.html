@@ -1,3 +1,39 @@
+<<<<<<< HEAD
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Materiales Disponibles</h1>
+    <div class="container">
+        <div class="row mt-5 justify-content-center">
+<table class="table">
+  <thead class="thead-dark" >
+    <tr>
+      <th scope="col" style="background-color:#204d74;">ID</th>
+      <th scope="col" style="background-color:#204d74;">Nombre</th>
+    </tr>
+  </thead>
+    {% for material in materiales %}
+    <tbody>
+    <tr>
+
+      <td>{{ material.id }}</td>
+      <td><a href="/material/{{ material.id }}/" class="card-link">{{ material.nombre }}</a></td>
+    </tr>
+    </tbody>
+    {% endfor %}
+</table>
+        
+            </div>
+        </div>
+    
+        </div>
+    </div>
+    <br>
+  </br>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a class="btn btn-secondary btn-lg" href="/material/create/" role="button" style="background-color:#204d74;">Agregar Material</a>
+
+
+=======
 {% extends 'base.html' %}
 
 {% block content %}
@@ -17,4 +53,5 @@
         </div>
     </div>
     <a class="btn btn-secondary btn-lg" href="/material/create/" role="button">Agregar Material</a>
+>>>>>>> 36aebbf1deafa3765d85e16a86f1d348a26baec8
 {% endblock %}
