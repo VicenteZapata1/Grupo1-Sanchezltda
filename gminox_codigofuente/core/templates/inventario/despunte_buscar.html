@@ -2,27 +2,40 @@
 
 
 {% block content %}
+<style>
+ body {
+  background-repeat: no-repeat;
+  background-size: 100%;
+} 
+
+</style>
+  {% load static %}
+<body background="{% static "images/taller.jpeg" %}" background-repeat: no-repeat;>
+</body>
+
+
     <form method="POST" action="/despunte/buscar/detalles/">
         {% csrf_token %}
         <div class="container">
-            <h2>Ingrese las medidas del trabajo</h2>
+            <h2><b>Ingrese Las Medidas Del Trabajo</b></h2>
             <div class="row">
             <div class="col-xs-2">
             <br/>
-            <label>Nombre de Material</label>
+            <label><b>Nombre de Material</b></label>
             <input class="typeahead form-control" type="text" placeholder="Buscar Nombre...." name="nombre" id="nombre">
-            <label>Largo</label>
+            <label><b>Largo</b></label>
             <input class="typeahead form-control" type="text" placeholder="Buscar Largo...." name="largo" id="largo">
-            <label>Ancho</label>
+            <label><b>Ancho</b></label>
             <input class="typeahead form-control" type="text" placeholder="Buscar Ancho...." name="ancho" id="ancho">
-            <label>Espesor</label>
+            <label><b>Espesor</b></label>
             <input class="typeahead form-control" type="text" placeholder="Buscar Espesor...." name="espesor" id="espesor">
             </div>
             </div>
         </div>
         <td colspan="2">
             <!--<input type="submit"> -->
-            <input type="submit" class="btn btn-primary btn-sm" style="background-color:#204d74">
+            <br>
+            <button type="submit" class="btn btn-secondary btn-lg" style="background-color:#204d74">Enviar</button>
         </td>
     </form>
 <!--<div class="jumbotron">

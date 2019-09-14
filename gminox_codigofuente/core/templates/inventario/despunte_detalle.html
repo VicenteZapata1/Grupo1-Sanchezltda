@@ -1,16 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style>
+ body {
+  background-repeat: no-repeat;
+  background-size: 100%;
+} 
+
+</style>
+  {% load static %}
+<body background="{% static "images/taller.jpeg" %}" background-repeat: no-repeat;>
+</body>
 
 
-<table class="table">
-    <thead>
+<br></br>
+<br>
+<table class="table table-sm table-light">
+    <thead class="thead-dark">
       <tr>
-        <th scope="col">ID</th>  
-        <th scope="col">Material</th>
-        <th scope="col">Largo(mm)</th>
-        <th scope="col">Ancho(mm)</th>
-        <th scope="col">Espesor(mm)</th>
+        <th scope="col" style="background-color:#204d74;">ID</th>  
+        <th scope="col" style="background-color:#204d74;">Material</th>
+        <th scope="col" style="background-color:#204d74;">Largo(mm)</th>
+        <th scope="col" style="background-color:#204d74;">Ancho(mm)</th>
+        <th scope="col" style="background-color:#204d74;">Espesor(mm)</th>
       </tr>
     </thead>
     {% for despunte in despuntes %}    
@@ -25,6 +37,6 @@
       {% endfor %}  
     </tbody>
   </table>
-  <a type="button" class="btn btn-primary btn-sm" style="background-color:#204d74"  href="/despunte/buscar/" >Volver</a>
+  <a type="button" class="btn btn-secondary btn-lg" style="background-color:#204d74"  href="/despunte/buscar/">Volver</a>
 
 {% endblock %}
