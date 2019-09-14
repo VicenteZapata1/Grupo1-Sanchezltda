@@ -1,20 +1,48 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Materiales Disponibles</h1>
+<style>
+ body {
+  background-repeat: no-repeat;
+  background-size: 100%;
+} 
+
+</style>
+  {% load static %}
+<body background="{% static "images/taller.jpeg" %}" background-repeat: no-repeat;>
+</body>
+
+
+    <h1><b>Materiales Disponibles</b></h1>
     <div class="container">
         <div class="row mt-5 justify-content-center">
+    <table class="table table-sm table-light">
+  <thead class="thead-dark" >
+    <tr>
+      <th scope="col" style="background-color:#204d74;">ID</th>
+      <th scope="col" style="background-color:#204d74;">Nombre</th>
+      <th scope="col" style="background-color:#204d74;">Cantidad</th>
+      </th>
+    </tr>
+  </thead>
     {% for material in materiales %}
-        <div class="card" style="width: 18rem">
-            <div class="card-body">
-                <h5 class="card-title">{{ material.id }}</h5> 
-                <p class="card-text">{{ material.nombre }}</p>
-                
-                <a href="/material/{{ material.id }}/" class="card-link">Detalle</a>
+    <tbody>
+    <tr>
+
+      <td><font color=black>{{ material.id }}</td>
+      <td><a href="/material/{{ material.id }}/" class="card-link">{{ material.nombre }}</a></td>
+      <td><font color=black>{{ material.cantidad }}</td>
+    </tr>
+    </tbody>
+    {% endfor %}
+</table>
+        
             </div>
         </div>
-    {% endfor %}
+    
         </div>
     </div>
-    <a class="btn btn-secondary btn-lg" href="/material/create/" role="button">Agregar Material</a>
+    <br>
+  </br>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a class="btn btn-secondary btn-lg" href="/material/create/" role="button" style="background-color:#204d74;">Agregar Material</a>
 {% endblock %}

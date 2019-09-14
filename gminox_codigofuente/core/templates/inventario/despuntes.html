@@ -1,10 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Despuntes Disponibles</h1>
+<style>
+ body {
+  background-repeat: no-repeat;
+  background-size: 100%;
+} 
+
+</style>
+  {% load static %}
+<body background="{% static "images/taller.jpeg" %}" background-repeat: no-repeat;>
+</body>
+
+
+    <h1><b>Despuntes Disponibles</b></h1>
     <div class="container">
         <div class="row mt-5 justify-content-center">
-     <table class="table">
+     <table class="table table-sm table-light">
   <thead class="thead-dark" >
     <tr>
       <th scope="col" style="background-color:#204d74;">ID</th>

@@ -1,25 +1,56 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Equipos de Protección Personal Disponibles</h1>
+<style>
+ body {
+  background-repeat: no-repeat;
+  background-size: 100%;
+} 
+
+</style>
+  {% load static %}
+<body background="{% static "images/taller.jpeg" %}" background-repeat: no-repeat;>
+</body>
+
+
+    <h1><b>Equipos de Protección Personal Disponibles</b></h1>
     <div class="container">
         <div class="row mt-5 justify-content-center">
+    <table class="table table-sm table-light">
+  <thead class="thead-dark" >
+    <tr>
+      <th scope="col" style="background-color:#204d74;">ID</th>
+      <th scope="col" style="background-color:#204d74;">Nombre</th>
+      <th scope="col" style="background-color:#204d74;">Marca</th>
+      <th scope="col" style="background-color:#204d74;">Unidad de Medida</th>
+      <th scope="col" style="background-color:#204d74;">Medida</th>
+      <th scope="col" style="background-color:#204d74;">Cantidad</th>
+      <th scope="col" style="background-color:#204d74;">Fecha</th>
+      </th>
+    </tr>
+  </thead>
     {% for epp in epps %}
-        <div class="card" style="width: 18rem">
-            <div class="card-body">
-                <h5 class="card-title">{{ epp.id }}</h5> 
-                <p class="card-text">{{ epp.nombre }}</p>
-                <p>Marca:    {{ epp.marca }} </p>
-                <p>Unidad de medida:    {{ epp.umedida }} </p>
-                <p>Medida:    {{ epp.medida }} </p>
-                <p>Cant:    {{ epp.cantidad }} </p>
-                <p>Fecha:    {{ epp.fecha }} </p>
-                
-                <a href="/epp/{{ epp.id }}/" class="card-link">Actualizar/Borrar</a>
+    <tbody>
+    <tr>
+
+      <td>{{ epp.id }}</td>
+      <td><a href="/epp/{{ epp.id }}/" class="card-link">{{ epp.nombre }}</a></td>
+      <td>{{ epp.marca }}</td>
+      <td>{{ epp.umedida }}</td>
+      <td>{{ epp.medida }}</td>
+      <td>{{ epp.cantidad }}</td>
+      <td>{{ epp.fecha }}</td>
+    </tr>
+    </tbody>
+    {% endfor %}
+</table>
+        
             </div>
         </div>
-    {% endfor %}
+    
         </div>
     </div>
-    <a class="btn btn-secondary btn-lg" href="/epp/create/" role="button">Agregar epp</a>
+    <br>
+  </br>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a class="btn btn-secondary btn-lg" href="/epp/create/" role="button" style="background-color:#204d74;">Agregar EPP</a>
 {% endblock %}

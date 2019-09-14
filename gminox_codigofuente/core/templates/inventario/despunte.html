@@ -1,6 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style>
+ body {
+  background-repeat: no-repeat;
+  background-size: 100%;
+} 
+
+</style>
+  {% load static %}
+<body background="{% static "images/taller.jpeg" %}" background-repeat: no-repeat;>
+</body>
+
+
 <div class="jumbotron">
     <h1 class="display-4">{{despunte.nombre}}</h1>
     <p class="lead">ID: {{despunte.id}}</p>
@@ -9,7 +21,7 @@
     <p>Largo(milimetro):   {{despunte.largo}} </p>
     <p>Espesor(milimetro):     {{despunte.espesor}} </p>
     <p>Cant:    {{despunte.cantidad}} </p>
-    <a class="btn btn-secondary btn-lg" href="/despunte/{{ despunte.id }}/update" role="button">Actualizar</a>
-    <a class="btn btn-secondary btn-lg" href="/despunte/{{ despunte.id }}/delete" role="button">Borrar</a>
+    <a class="btn btn-secondary btn-lg" href="/despunte/{{ despunte.id }}/update" role="button" style="background-color:#204d74;">Actualizar</a>
+    <a class="btn btn-secondary btn-lg" href="/despunte/{{ despunte.id }}/delete" role="button" style="background-color:#204d74;">Borrar</a>
 </div>
 {% endblock %}
