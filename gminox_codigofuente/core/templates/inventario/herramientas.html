@@ -1,41 +1,3 @@
-<<<<<<< HEAD
-{% extends 'base.html' %}
-
-{% block content %}
-    <h1>Herramientas Disponibles</h1>
-    <div class="container">
-        <div class="row mt-5 justify-content-center">
-   <table class="table">
-  <thead class="thead-dark" >
-    <tr>
-      <th scope="col" style="background-color:#204d74;">ID</th>
-      <th scope="col" style="background-color:#204d74;">Nombre</th>
-      <th scope="col" style="background-color:#204d74;">Cantidad</th>
-    </tr>
-  </thead>
-    {% for herramienta in herramientas %}
-    <tbody>
-    <tr>
-
-      <td>{{ herramienta.id }}</td>
-      <td><a href="/herramienta/{{ herramienta.id }}/" class="card-link">{{ herramienta.nombre }}</a></td>
-      <td>{{ herramienta.cantidad }}</td>
-
-    </tr>
-    </tbody>
-    {% endfor %}
-</table>
-        
-            </div>
-        </div>
-    
-        </div>
-    </div>
-    <br>
-  </br>
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a class="btn btn-secondary btn-lg" href="/herramienta/create/" role="button" style="background-color:#204d74;">Actualizar/Borrar</a>
-
-=======
 {% extends 'base.html' %}
 
 {% block content %}
@@ -47,7 +9,11 @@
             <div class="card-body">
                 <h5 class="card-title">{{ herramienta.id }}</h5> 
                 <p class="card-text">{{ herramienta.nombre }}</p>
-                <p class="card-text">cant:  {{ herramienta.cantidad }}</p>
+                <p>Marca:    {{ herramienta.marca }} </p>
+                <p>Unidad de medida:    {{ herramienta.umedida }} </p>
+                <p>Medida:    {{ herramienta.medida }} </p>
+                <p>Cant:    {{ herramienta.cantidad }} </p>
+                <p>Fecha:    {{ herramienta.fecha }} </p>
                 
                 <a href="/herramienta/{{ herramienta.id }}/" class="card-link">Actualizar/Borrar</a>
             </div>
@@ -56,5 +22,4 @@
         </div>
     </div>
     <a class="btn btn-secondary btn-lg" href="/herramienta/create/" role="button">Agregar Herramienta</a>
->>>>>>> 36aebbf1deafa3765d85e16a86f1d348a26baec8
 {% endblock %}

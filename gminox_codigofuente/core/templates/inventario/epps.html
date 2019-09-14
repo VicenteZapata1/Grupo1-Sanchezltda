@@ -1,49 +1,3 @@
-<<<<<<< HEAD
-{% extends 'base.html' %}
-
-{% block content %}
-
-<script>
-var Combobox='Antiparra'
-</script>
-    <h1>Equipos de Protección Personal Disponibles</h1>
-    <div class="container">
-        <div class="row mt-5 justify-content-center">
-
-            <table class="table">
-  <thead class="thead-dark" >
-    <tr>
-      <th scope="col" style="background-color:#204d74;">ID</th>
-      <th scope="col" style="background-color:#204d74;">Nombre</th>
-      <th scope="col" style="background-color:#204d74;">Cantidad</th>
-      <th scope="col" style="background-color:#204d74;">
-      </th>
-    </tr>
-  </thead>
-    {% for epp in epps %}
-    <tbody>
-    <tr>
-
-      <td>{{ epp.id }}</td>
-      <td><a href="/epp/{{ epp.id }}/" class="card-link">{{ epp.nombre }}</a></td>
-      <td>{{ epp.cantidad }}</td>
-      <td> </td>
-    </tr>
-    </tbody>
-    {% endfor %}
-</table>
-        
-            </div>
-        </div>
-    
-        </div>
-    </div>
-    <br>
-  </br>
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a class="btn btn-secondary btn-lg" href="/epp/create/" role="button" style="background-color:#204d74;">Agregar EPP</a>
-    <p>{{Combobox}}</p>
-
-=======
 {% extends 'base.html' %}
 
 {% block content %}
@@ -55,7 +9,11 @@ var Combobox='Antiparra'
             <div class="card-body">
                 <h5 class="card-title">{{ epp.id }}</h5> 
                 <p class="card-text">{{ epp.nombre }}</p>
-                <p>Cant:    {{epp.cantidad}} </p>
+                <p>Marca:    {{ epp.marca }} </p>
+                <p>Unidad de medida:    {{ epp.umedida }} </p>
+                <p>Medida:    {{ epp.medida }} </p>
+                <p>Cant:    {{ epp.cantidad }} </p>
+                <p>Fecha:    {{ epp.fecha }} </p>
                 
                 <a href="/epp/{{ epp.id }}/" class="card-link">Actualizar/Borrar</a>
             </div>
@@ -64,5 +22,4 @@ var Combobox='Antiparra'
         </div>
     </div>
     <a class="btn btn-secondary btn-lg" href="/epp/create/" role="button">Agregar epp</a>
->>>>>>> 36aebbf1deafa3765d85e16a86f1d348a26baec8
 {% endblock %}

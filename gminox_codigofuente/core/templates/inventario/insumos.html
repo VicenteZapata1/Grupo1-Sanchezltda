@@ -1,42 +1,3 @@
-<<<<<<< HEAD
-{% extends 'base.html' %}
-
-{% block content %}
-    <h1>Insumos Disponibles</h1>
-    <div class="container">
-        <div class="row mt-5 justify-content-center">
-     <table class="table">
-  <thead class="thead-dark" >
-    <tr>
-      <th scope="col" style="background-color:#204d74;">ID</th>
-      <th scope="col" style="background-color:#204d74;">Nombre</th>
-      <th scope="col" style="background-color:#204d74;">Medida</th>
-      <th scope="col" style="background-color:#204d74;">Cantidad</th>
-    </tr>
-  </thead>
-    {% for insumo in insumos %}
-    <tbody>
-    <tr>
-
-      <td>{{ insumo.id }}</td>
-      <td><a href="/insumo/{{ insumo.id }}/" class="card-link">{{ insumo.nombre }}</a></td>
-      <td>{{ insumo.medida }}</td>
-      <td>{{ insumo.cantidad }}</td>
-
-    </tr>
-    </tbody>
-    {% endfor %}
-</table>
-        
-            </div>
-        </div>
-    
-        </div>
-    </div>
-    <br>
-  </br>
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a class="btn btn-secondary btn-lg" href="/herramienta/create/" role="button" style="background-color:#204d74;">Agregar Insumo</a>
-=======
 {% extends 'base.html' %}
 
 {% block content %}
@@ -48,8 +9,11 @@
             <div class="card-body">
                 <h5 class="card-title">{{ insumo.id }}</h5> 
                 <p class="card-text">{{ insumo.nombre }}</p>
-                <p class="card-text">medida:    {{ insumo.medida }}</p>
-                <p class="card-text">cant:  {{ insumo.cantidad }}</p>
+                <p>Marca:    {{ insumo.marca }} </p>
+                <p>Unidad de medida:    {{ insumo.umedida }} </p>
+                <p>Medida:    {{ insumo.medida }} </p>
+                <p>Cant:    {{ insumo.cantidad }} </p>
+                <p>Fecha:    {{ insumo.fecha }} </p>
                 
                 <a href="/insumo/{{ insumo.id }}/" class="card-link">Actualizar/Borrar</a>
             </div>
@@ -58,5 +22,4 @@
         </div>
     </div>
     <a class="btn btn-secondary btn-lg" href="/insumo/create/" role="button">Agregar Insumo</a>
->>>>>>> 36aebbf1deafa3765d85e16a86f1d348a26baec8
 {% endblock %}

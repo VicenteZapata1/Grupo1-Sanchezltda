@@ -32,6 +32,8 @@ class Herramienta(models.Model):
     umedida=models.CharField(max_length=20, null= True, blank= True,)
     medida=models.IntegerField(null= True, blank= True)
     fecha= models.DateField(("Date"), default=datetime.date.today)
+    herramientas=models.Manager()
+
     def __str__(self):
         return "{}".format(self.nombre)      
 
@@ -42,6 +44,8 @@ class Insumo(models.Model):
     umedida=models.CharField(max_length=20, null= True, blank= True)
     medida=models.IntegerField(null= True, blank= True)
     fecha= models.DateField(("Date"), default=datetime.date.today)
+    insumos= models.Manager()
+
     def __str__(self):
         return "{}".format(self.nombre)          
 
