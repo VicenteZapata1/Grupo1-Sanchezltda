@@ -26,7 +26,32 @@
       <th scope="col" style="background-color:#204d74;">Medida</th>
       <th scope="col" style="background-color:#204d74;">Cantidad</th>
       <th scope="col" style="background-color:#204d74;">Fecha</th>
+      <th scope="col" style="background-color:#204d74;">
+      <form name="parametros" id="parametros" method="POST" action="/epps/">
+        {% csrf_token %}
+        <select name="tipo" id="tipo" onchange="getSelectValue();">
+        {% for tipo in tipos %}
+          {% if tipo.default == 1 %}
+            <option default value='{{ tipo.codigo }}'>{{ tipo.nombre }}</option>
+          {% endif %}
+          {% if tipo.default == 0 %}
+            <option value='{{ tipo.codigo }}''>{{ tipo.nombre }}</option>
+          {% endif %}
+        {% endfor %}
+        </select></th>
+      </form>
+    <script>
+        
+        function getSelectValue()
+        {
+            var selectedValue = document.getElementById("tipo").value;
+            console.log(selectedValue);
+            document.parametros.submit();
+        }
+
+    </script>
       </th>
+      
     </tr>
   </thead>
     {% for epp in epps %}
