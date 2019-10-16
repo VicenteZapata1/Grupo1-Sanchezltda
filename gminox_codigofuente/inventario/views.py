@@ -38,10 +38,43 @@ class MaterialDelete(DeleteView):
     template_name='./inventario/material_form.html'
     success_url = reverse_lazy('materiales')        
 
+class Tipo:
+    def __init__(self,codigo,nombre,default):
+        self.codigo=codigo
+        self.nombre=nombre
+        self.default=default
  
 class HomeEPPView(LoginRequiredMixin,TemplateView):
+    def generar_tipos(self):
+        tipos=[]
+        tipos.append(Tipo("","",1))
+        tipos.append(Tipo("zapatos","Zapatos de Seguridad",0))
+        tipos.append(Tipo("guantes","Guantes",0))
+        tipos.append(Tipo("tapones","Tapones para Oído",0))
+        tipos.append(Tipo("antiparra","Antiparra",0))
+        tipos.append(Tipo("mascara","Máscara de Soldar",0))
+        return tipos
+
     def get(self, request, **kwargs):
-        return render(request, 'inventario/epps.html',{'epps': EPP.epps.all()})
+        return render(request, 'inventario/epps.html',{'epps': EPP.epps.all(),'tipos': self.generar_tipos()})
+
+    def post(self, request, **kwargs):
+        tipo=request.POST.get("tipo")
+        print(tipo)
+        if tipo=="":
+            return render(request, 'inventario/epps.html',{'epps': EPP.epps.all(), 'tipos': self.generar_tipos()})
+        else:
+            datos=EPP.buscar_epp(tipo)
+            for dato in datos:
+                print(dato)
+            tipos=self.generar_tipos()
+            for tipo2 in tipos:
+                if tipo2.codigo==tipo:
+                    tipo2.default=1
+                else:
+                    tipo2.default=0
+            tipos=sorted(tipos,key=lambda x : x.default,reverse=True)
+            return render(request, 'inventario/epps.html', {'epps':datos, 'tipos': tipos })
 
 class DetalleEPPView(LoginRequiredMixin,TemplateView):
     def get(self, request, **kwargs):
@@ -152,3 +185,8 @@ class BuscarDespunteDetalle(TemplateView):
         for dato in datos:
             print(dato)
         return render(request, 'inventario/despunte_detalle.html', {'despuntes':datos})
+
+class BuscarEPP(TemplateView):
+    model = EPP
+    template_name='./inventario/epps.html'
+    fields = ['nombre']

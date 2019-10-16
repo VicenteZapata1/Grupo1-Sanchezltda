@@ -22,6 +22,11 @@ class EPP(models.Model):
     fecha= models.DateField(("Date"), default=datetime.date.today)
     epps=models.Manager()
 
+    def buscar_epp(nombre):
+        epps=[]
+        datos=EPP.epps.raw("SELECT * FROM inventario_epp WHERE nombre LIKE '%{0}%'".format(nombre))
+        return datos
+
     def __str__(self):
         return "{}".format(self.nombre)
 
@@ -63,5 +68,8 @@ class Despunte(models.Model):
             despuntes.append(despunte)
         return despuntes
     
+    def __str__(self):
+        return "{}".format(self.nombre)
+   
     def __str__(self):
         return "{}".format(self.nombre)
