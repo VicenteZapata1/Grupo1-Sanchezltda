@@ -51,7 +51,6 @@ class Insumo(models.Model):
 
 class Despunte(models.Model):
     nombre=models.CharField(max_length=60)
-    cantidad=models.IntegerField()
     largo=models.IntegerField()
     ancho=models.IntegerField()
     espesor=models.IntegerField()

@@ -1,25 +1,56 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Insumos Disponibles</h1>
+<style>
+ body {
+  background-repeat: no-repeat;
+  background-size: 100%;
+} 
+
+</style>
+  {% load static %}
+<body background="{% static "images/taller.jpeg" %}" background-repeat: no-repeat;>
+</body>
+
+
+    <h1><b>Insumos Disponibles</b></h1>
     <div class="container">
         <div class="row mt-5 justify-content-center">
+    <table class="table table-sm table-light">
+  <thead class="thead-dark" >
+    <tr>
+      <th scope="col" style="background-color:#204d74;">ID</th>
+      <th scope="col" style="background-color:#204d74;">Nombre</th>
+      <th scope="col" style="background-color:#204d74;">Marca</th>
+      <th scope="col" style="background-color:#204d74;">Unidad de Medida</th>
+      <th scope="col" style="background-color:#204d74;">Medida</th>
+      <th scope="col" style="background-color:#204d74;">Cantidad</th>
+      <th scope="col" style="background-color:#204d74;">Fecha</th>
+      </th>
+    </tr>
+  </thead>
     {% for insumo in insumos %}
-        <div class="card" style="width: 18rem">
-            <div class="card-body">
-                <h5 class="card-title">{{ insumo.id }}</h5> 
-                <p class="card-text">{{ insumo.nombre }}</p>
-                <p>Marca:    {{ insumo.marca }} </p>
-                <p>Unidad de medida:    {{ insumo.umedida }} </p>
-                <p>Medida:    {{ insumo.medida }} </p>
-                <p>Cant:    {{ insumo.cantidad }} </p>
-                <p>Fecha:    {{ insumo.fecha }} </p>
-                
-                <a href="/insumo/{{ insumo.id }}/" class="card-link">Actualizar/Borrar</a>
+    <tbody>
+    <tr>
+
+      <td>{{ insumo.id }}</td>
+      <td><a href="/insumo/{{ insumo.id }}/" class="card-link">{{ insumo.nombre }}</a></td>
+      <td>{{ insumo.marca }}</td>
+      <td>{{ insumo.umedida }}</td>
+      <td>{{ insumo.medida }}</td>
+      <td>{{ insumo.cantidad }}</td>
+      <td>{{ insumo.fecha }}</td>
+    </tr>
+    </tbody>
+    {% endfor %}
+</table>
+        
             </div>
         </div>
-    {% endfor %}
+    
         </div>
     </div>
-    <a class="btn btn-secondary btn-lg" href="/insumo/create/" role="button">Agregar Insumo</a>
+    <br>
+  </br>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a class="btn btn-secondary btn-lg" href="/insumo/create/" role="button" style="background-color:#204d74;">Agregar Insumo</a>
 {% endblock %}
