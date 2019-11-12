@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Herramientas Disponibles</h1>
+    <div class="container">
+        <div class="row mt-5 justify-content-center">
+    {% for herramienta in herramientas %}
+        <div class="card" style="width: 18rem">
+            <div class="card-body">
+                <h5 class="card-title">{{ herramienta.id }}</h5> 
+                <p class="card-text">{{ herramienta.nombre }}</p>
+                <p class="card-text">cant:  {{ herramienta.cantidad }}</p>
+                
+                <a href="/herramienta/{{ herramienta.id }}/" class="card-link">Actualizar/Borrar</a>
+            </div>
+        </div>
+    {% endfor %}
+        </div>
+    </div>
+    <a class="btn btn-secondary btn-lg" href="/herramienta/create/" role="button">Agregar Herramienta</a>
+{% endblock %}

@@ -1,4 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#204d74;">
+<<<<<<< HEAD
+=======
+    <li class="nav dropdown">
+>>>>>>> e1a817ac3ef6e9c52f14d06444c5f554a06fe197
      <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" href="{% url 'index' %}" style="color:#ffffff">Inventario</a>
      <ul class="dropdown-menu">
             <li class="nav-item active">
@@ -16,9 +20,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="/despuntes">Despuntes</a>
               </li>
-              </li>
           </ul>
 
+<<<<<<< HEAD
                 <li class="nav-item dropdown">
 
                     <a class="nav-link dropdown-toggle" href="{% url 'index' %}" role="button" data-toggle="dropdown"
@@ -71,6 +75,43 @@
                     </ul>
 
                 </li>
+=======
+              <li class="nav dropdown">
+
+                  <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" href="{% url 'index' %}" style="color:#ffffff">Facturacion</a>
+                  <ul class="dropdown-menu">
+                          <li class="nav-item active">
+                                <a class="nav-link" href="#">Facturacion1 <span class="sr-only">(current)</span></a>
+                            </li>
+
+                   </ul>
+               </li>
+
+                        <li class="nav dropdown">
+
+                            <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" href="{% url 'index' %}" style="color:#ffffff">Cotizacion</a>
+                            <ul class="dropdown-menu">
+                                    <li class="nav-item active">
+                                          <a class="nav-link" href="#">Cotizacion1 <span class="sr-only">(current)</span></a>
+                                      </li>
+
+                            </ul>
+                        </li>
+
+                            <li class="nav dropdown">
+
+                                <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" href="{% url 'index' %}" style="color:#ffffff">Administracion</a>
+                                <ul class="dropdown-menu">
+                                        <li class="nav-item active">
+                                              <a class="nav-link" href="#">Clientes <span class="sr-only">(current)</span></a>
+                                          </li>
+                                        <li class="nav-item">
+                                              <a class="nav-link" href="#">Provedores</a>
+                                          </li>
+
+                                </ul>
+                            </li>
+>>>>>>> e1a817ac3ef6e9c52f14d06444c5f554a06fe197
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,7 +121,11 @@
       <ul class="navbar-nav mr-auto">
           {% if user.is_authenticated %}
           	  <li class="nav-item">
+<<<<<<< HEAD
               <a class="nav-link" href="/" style="color:#ffffff">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+=======
+              <a class="nav-link" href="/" style="color:#ffffff">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+>>>>>>> e1a817ac3ef6e9c52f14d06444c5f554a06fe197
           </li>
           	  <li class="nav-item">
                   <a class="nav-link" href="/" style="color:#ffffff">Inicio</a>
@@ -101,7 +146,11 @@
       </span>
       {% else %}
       	  <li class="nav-item">
+<<<<<<< HEAD
               <a class="nav-link" href="{% url 'login' %}" style="color:#ffffff">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+=======
+              <a class="nav-link" href="{% url 'login' %}" style="color:#ffffff">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+>>>>>>> e1a817ac3ef6e9c52f14d06444c5f554a06fe197
           </li>
           <li class="nav-item">
               <a class="nav-link" href="{% url 'login' %}" style="color:#ffffff">Iniciar Sesión</a>
