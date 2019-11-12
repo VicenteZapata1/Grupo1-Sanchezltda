@@ -1,8 +1,11 @@
 from django.urls import path
 from django.conf.urls import url,re_path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
+    path('upload/', views.upload, name='upload'),
     path(r'materiales/', views.HomeMaterialesView.as_view(), name='materiales'),
     url(r'^material/create/$', views.MaterialCreate.as_view(success_url='/materiales/'),name='material_create'),
     url(r'material/(?P<pk>\d+)/update/$',views.MaterialUpdate.as_view(success_url='/materiales/'), name='material_update'),
@@ -31,3 +34,9 @@ urlpatterns = [
     re_path(r'^despunte/buscar/$', views.BuscarDespunte.as_view(),name ='buscar_despunte'),
     re_path(r'^despunte/buscar/detalles/', views.BuscarDespunteDetalle.as_view(),name ='buscar_despunte_detalle'),
 ]
+
+
+
+if settings.DEBUG:
+
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

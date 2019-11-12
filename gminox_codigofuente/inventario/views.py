@@ -6,12 +6,29 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.conf import settings
 from django.conf.urls.static import static
+from django.core.files.storage import FileSystemStorage
 
 # Create your views here.
 
 urlpatterns = [
     # ... the rest of your URLconf goes here ...
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+
+class Upload_PDF(TemplateView):
+    template_name ='upload_PDF'
+
+
+def upload(request):
+     context = {}
+     if request.method == 'POST':
+        uploaded_file = request.FILES['document']
+        fs = FileSystemStorage()
+        name = fs.save(uploaded_file.name, uploaded_file)
+        context['url'] = fs.url(name)
+     return render(request, 'upload.html', context)
+
+
 
 
 class HomeMaterialesView(LoginRequiredMixin,TemplateView):
@@ -49,7 +66,7 @@ class HomeEPPView(LoginRequiredMixin,TemplateView):
         tipos=[]
         tipos.append(Tipo("","",1))
         tipos.append(Tipo("zapatos","Zapatos de Seguridad",0))
-        tipos.append(Tipo("guantes","Guantes",0))
+        tipos.append(Tipo("guante","Guante",0))
         tipos.append(Tipo("tapones","Tapones para Oído",0))
         tipos.append(Tipo("antiparra","Antiparra",0))
         tipos.append(Tipo("mascara","Máscara de Soldar",0))
