@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'accounts',
     'inventario',
     'administracion',
+    'Cotizacion',
 ]
 
 MIDDLEWARE = [

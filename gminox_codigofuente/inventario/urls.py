@@ -5,7 +5,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('upload/', views.upload, name='upload'),
     path(r'materiales/', views.HomeMaterialesView.as_view(), name='materiales'),
     url(r'^material/create/$', views.MaterialCreate.as_view(success_url='/materiales/'),name='material_create'),
     url(r'material/(?P<pk>\d+)/update/$',views.MaterialUpdate.as_view(success_url='/materiales/'), name='material_update'),

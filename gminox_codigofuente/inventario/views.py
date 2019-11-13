@@ -14,23 +14,6 @@ urlpatterns = [
     # ... the rest of your URLconf goes here ...
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-
-class Upload_PDF(TemplateView):
-    template_name ='upload_PDF'
-
-
-def upload(request):
-     context = {}
-     if request.method == 'POST':
-        uploaded_file = request.FILES['document']
-        fs = FileSystemStorage()
-        name = fs.save(uploaded_file.name, uploaded_file)
-        context['url'] = fs.url(name)
-     return render(request, 'upload.html', context)
-
-
-
-
 class HomeMaterialesView(LoginRequiredMixin,TemplateView):
     def get(self, request, **kwargs):
         return render(request, 'inventario/materiales.html', {'materiales': Material.materiales.all()})
