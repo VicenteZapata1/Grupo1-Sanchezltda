@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Clientes Disponibles</h1>
+    <div class="container">
+        <div class="row mt-5 justify-content-center">
+    {% for cliente in clientes %}
+        <div class="card" style="width: 18rem">
+            <div class="card-body">
+                <h5 class="card-title">{{ cliente.id }}</h5> 
+                <p class="card-text">{{ cliente.nombre }}</p>
+                
+                <a href="/cliente/{{ cliente.id }}/" class="card-link">Detalle</a>
+            </div>
+        </div>
+    {% endfor %}
+        </div>
+    </div>
+    <a class="btn btn-secondary btn-lg" href="/cliente/create/" role="button">Agregar Cliente</a>
+    <a class="btn btn-secondary btn-lg" href="/cliente/buscar/" role="button" style="background-color:#204d74;">Buscar Cliente</a>
+{% endblock %}

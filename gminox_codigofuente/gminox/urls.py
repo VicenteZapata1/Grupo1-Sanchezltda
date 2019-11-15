@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^$',views.HomePageView.as_view(),name='index'),
     path('', include('inventario.urls')),
     path('',include('Cotizacion.urls')),
+    path('',include('administracion.urls')),
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     

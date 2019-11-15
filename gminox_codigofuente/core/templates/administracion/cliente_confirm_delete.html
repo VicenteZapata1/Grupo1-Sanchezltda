@@ -1,0 +1,20 @@
+{% extendes 'base.html' %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1 class="display-4">{{cliente.id}}</h1>
+    <p class="lead">{{cliente.nombre}}</p>
+    <hr class="my-4">
+    <p>{{cliente.rut}} rut</p>
+    <p>{{cliente.telefono_cliente}} telefono</p>
+    <p>{{cliente.email_cliente}} email</p>
+    <p>{{cliente.representante}} representante</p>
+    <p>¿desea borrar el cliente?</p>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Confirmar borrado</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -32,6 +32,7 @@ urlpatterns = [
     re_path(r'^despunte/(?P<id>[0-9]{1})/$', views.DetalleDespunteView.as_view(),name="detalle"),
     re_path(r'^despunte/buscar/$', views.BuscarDespunte.as_view(),name ='buscar_despunte'),
     re_path(r'^despunte/buscar/detalles/', views.BuscarDespunteDetalle.as_view(),name ='buscar_despunte_detalle'),
+    
 ]
 
 

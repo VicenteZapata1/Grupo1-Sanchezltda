@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+ body {
+  background-repeat: no-repeat;
+  background-size: 100%;
+} 
+
+</style>
+  {% load static %}
+<body background="{% static "images/taller.jpeg" %}" background-repeat: no-repeat;>
+</body>
+
+
+<div class="jumbotron">
+    <h1 class="display-4">{{cliente.nombre}}</h1>
+    <p class="lead">ID: {{cliente.id}}</p>
+    <hr class="my-4">
+    <p>Rut:   {{cliente.rut}} </p>
+    <p>Email:   {{cliente.email_cliente}} </p>
+    <p>Telefono:     {{cliente.telefono_cliente}} </p>
+    <p>Representante:    {{cliente.representante}} </p>
+    <p>Tel. Representante:    {{cliente.telefono_representante}} </p>
+    <p>Email Representante:    {{cliente.email_representante}} </p>
+    <p>Dirección:    {{cliente.direccion}} </p>
+    <p>Giro:    {{cliente.giro}} </p>
+    <a class="btn btn-secondary btn-lg" href="/cliente/{{ cliente.id }}/update" role="button" style="background-color:#204d74;">Actualizar</a>
+    <a class="btn btn-secondary btn-lg" href="/cliente/{{ cliente.id }}/delete" role="button" style="background-color:#204d74;">Borrar</a>
+    <a class="btn btn-secondary btn-lg" href="/clientes/" role="button" style="background-color:#204d74;">Volver</a>
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<style>
+ body {
+  background-repeat: no-repeat;
+  background-size: 100%;
+} 
+
+</style>
+  {% load static %}
+<body background="{% static "images/taller.jpeg" %}" background-repeat: no-repeat;>
+</body>
+
+
+    <form method="POST" action="/cliente/buscar/detalles/">
+        {% csrf_token %}
+        <div class="container">
+            <h2><b>Ingrese datos del cliente</b></h2>
+            <div class="row">
+            <div class="col-xs-2">
+            <br/>
+            <label><b>Nombre del/la Cliente/Empresa</b></label>
+            <input class="typeahead form-control" type="text" placeholder="Buscar Nombre...." name="nombre" id="nombre">
+            <label><b>Representante</b></label>
+            <input class="typeahead form-control" type="text" placeholder="Buscar Representante...." name="representante" id="representante">
+            </div>
+            </div>
+        </div>
+        <td colspan="2">
+            <!--<input type="submit"> -->
+            <br>
+            <button type="submit" class="btn btn-secondary btn-lg" style="background-color:#204d74">Enviar</button>
+            <a class="btn btn-secondary btn-lg" href="/clientes/" role="button" style="background-color:#204d74;">Volver</a>
+        </td>
+    </form>
+<!--<div class="jumbotron">
+
+    <ul class="list-group">
+        <li class="list-group-item">Ancho(milimetro):   {{despunte.ancho}}</li>
+        <li class="list-group-item">Largo(milimetro):   {{despunte.largo}} </li>
+        <li class="list-group-item">Espesor(milimetro):     {{despunte.espesor}} </li>
+      </ul>
+</div> -->
+{% endblock %}

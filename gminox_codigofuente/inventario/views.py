@@ -10,9 +10,6 @@ from django.core.files.storage import FileSystemStorage
 
 # Create your views here.
 
-urlpatterns = [
-    # ... the rest of your URLconf goes here ...
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 class HomeMaterialesView(LoginRequiredMixin,TemplateView):
     def get(self, request, **kwargs):

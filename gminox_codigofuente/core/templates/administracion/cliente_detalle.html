@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+ body {
+  background-repeat: no-repeat;
+  background-size: 100%;
+} 
+
+</style>
+  {% load static %}
+<body background="{% static "images/taller.jpeg" %}" background-repeat: no-repeat;>
+</body>
+
+
+<br></br>
+<br>
+<table class="table table-sm table-light">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col" style="background-color:#204d74;">ID</th>  
+        <th scope="col" style="background-color:#204d74;">Nombre</th>
+        <th scope="col" style="background-color:#204d74;">Representante</th>
+      </tr>
+    </thead>
+    {% for cliente in clientes %}    
+    <tbody>
+      <tr>
+        <th scope="row">{{cliente.id}}</th>
+        <td>{{cliente.nombre}}</td>
+        <td>{{cliente.representante}}</td>
+      </tr>
+      {% endfor %}  
+    </tbody>
+  </table>
+  <a type="button" class="btn btn-secondary btn-lg" style="background-color:#204d74"  href="/cliente/buscar/">Volver</a>
+
+{% endblock %}
