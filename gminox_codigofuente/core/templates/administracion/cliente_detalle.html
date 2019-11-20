@@ -21,6 +21,8 @@
         <th scope="col" style="background-color:#204d74;">ID</th>  
         <th scope="col" style="background-color:#204d74;">Nombre</th>
         <th scope="col" style="background-color:#204d74;">Representante</th>
+        <th scope="col" style="background-color:#204d74;">Número del representante</th>
+        <th scope="col" style="background-color:#204d74;">Email del Representante</th>
       </tr>
     </thead>
     {% for cliente in clientes %}    
@@ -29,6 +31,8 @@
         <th scope="row">{{cliente.id}}</th>
         <td>{{cliente.nombre}}</td>
         <td>{{cliente.representante}}</td>
+        <td>{{cliente.telefono_representante}}</td>
+        <td>{{cliente.email_representante}}</td>
       </tr>
       {% endfor %}  
     </tbody>

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from administracion.models import Cliente
+from administracion.models import Cliente, Proveedor
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
@@ -45,4 +45,42 @@ class BuscarClienteDetalle(TemplateView):
         for lista in listas:
             print(lista)
         return render(request, 'administracion/cliente_detalle.html', {'clientes':listas})
+
+class HomeProveedoresView(LoginRequiredMixin,TemplateView):
+    def get(self, request, **kwargs):
+        return render(request, 'administracion/proveedores.html', {'proveedores': Proveedor.proveedores.all()})
+
+class DetalleProveedorView(LoginRequiredMixin,TemplateView):
+    def get(self, request, **kwargs):
+        id=kwargs["id"]
+        return render(request, 'administracion/proveedor.html', {'proveedor': Proveedor.proveedores.get(id=id)})
+
+class ProveedorCreate(CreateView):
+    model = Proveedor
+    template_name='./administracion/proveedor_form.html'
+    fields = '__all__'
+
+class ProveedorUpdate(UpdateView):
+    model = Proveedor
+    template_name='./administracion/proveedor_form.html'
+    fields = ['vendedor', 'telefono_vendedor','email_vendedor','direccion']
+
+class ProveedorDelete(DeleteView):
+    model = Proveedor
+    template_name='./administracion/proveedor_form.html'
+    success_url = reverse_lazy('proveedores')  
+
+class BuscarProveedor(TemplateView):
+    model = Proveedor
+    template_name='./administracion/proveedor_buscar.html'
+    fields = ['nombre','vendedor']        
+
+class BuscarProveedorDetalle(TemplateView):
+    def post(self, request, **kwargs):
+        nombre=request.POST.get("nombre")
+        vendedor=request.POST.get("vendedor")    
+        listas=Proveedor.buscar_proveedor(nombre,vendedor)
+        for lista in listas:
+            print(lista)
+        return render(request, 'administracion/proveedor_detalle.html', {'proveedores':listas})    
 

@@ -1,0 +1,20 @@
+{% extendes 'base.html' %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1 class="display-4">{{proveedor.id}}</h1>
+    <p class="lead">{{proveedor.nombre}}</p>
+    <hr class="my-4">
+    <p>{{proveedor.rut}} rut</p>
+    <p>{{proveedor.telefono_cliente}} telefono</p>
+    <p>{{proveedor.email_cliente}} email</p>
+    <p>{{proveedor.vendedor}} vendedor</p>
+    <p>¿desea borrar el proveedor?</p>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Confirmar borrado</button>
+    </form>
+</div>
+
+{% endblock %}

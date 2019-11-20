@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+ body {
+  background-repeat: no-repeat;
+  background-size: 100%;
+} 
+
+</style>
+  {% load static %}
+<body background="{% static "images/taller.jpeg" %}" background-repeat: no-repeat;>
+</body>
+
+
+<div class="jumbotron">
+    <h1 class="display-4">{{proveedor.nombre}}</h1>
+    <p class="lead">ID: {{proveedor.id}}</p>
+    <hr class="my-4">
+    <p>Rut:   {{proveedor.rut}} </p>
+    <p>Email:   {{proveedor.email_proveedor}} </p>
+    <p>Telefono:     {{proveedor.telefono_proveedor}} </p>
+    <p>Vendedor:    {{proveedor.vendedor}} </p>
+    <p>Tel. Vendedor:    {{proveedor.telefono_vendedor}} </p>
+    <p>Email Vendedor:    {{proveedor.email_vendedor}} </p>
+    <p>Dirección:    {{proveedor.direccion}} </p>
+    <p>Giro:    {{proveedor.giro}} </p>
+    <a class="btn btn-secondary btn-lg" href="/proveedor/{{ proveedor.id }}/update" role="button" style="background-color:#204d74;">Actualizar</a>
+    <a class="btn btn-secondary btn-lg" href="/proveedor/{{ proveedor.id }}/delete" role="button" style="background-color:#204d74;">Borrar</a>
+    <a class="btn btn-secondary btn-lg" href="/proveedores/" role="button" style="background-color:#204d74;">Volver</a>
+</div>
+{% endblock %}

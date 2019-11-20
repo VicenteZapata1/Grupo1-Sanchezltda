@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+ body {
+  background-repeat: no-repeat;
+  background-size: 100%;
+} 
+
+</style>
+  {% load static %}
+<body background="{% static "images/taller.jpeg" %}" background-repeat: no-repeat;>
+</body>
+
+
+<br></br>
+<br>
+<table class="table table-sm table-light">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col" style="background-color:#204d74;">ID</th>  
+        <th scope="col" style="background-color:#204d74;">Nombre</th>
+        <th scope="col" style="background-color:#204d74;">Vendedor</th>
+        <th scope="col" style="background-color:#204d74;">Número del Vendedor</th>
+        <th scope="col" style="background-color:#204d74;">Email del Vendedor</th>
+      </tr>
+    </thead>
+    {% for proveedor in proveedores %}    
+    <tbody>
+      <tr>
+        <th scope="row">{{proveedor.id}}</th>
+        <td>{{proveedor.nombre}}</td>
+        <td>{{proveedor.vendedor}}</td>
+        <td>{{proveedor.telefono_vendedor}}</td>
+        <td>{{proveedor.email_vendedor}}</td>
+      </tr>
+      {% endfor %}  
+    </tbody>
+  </table>
+  <a type="button" class="btn btn-secondary btn-lg" style="background-color:#204d74"  href="/proveedor/buscar/">Volver</a>
+
+{% endblock %}
