@@ -1,7 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Clientes Disponibles</h1>
+
+<style>
+ body {
+  background-repeat: no-repeat;
+  background-size: 100%;
+} 
+
+</style>
+  {% load static %}
+<body background="{% static "images/taller.jpeg" %}" background-repeat: no-repeat;>
+</body>
+
+    <h1><b>Clientes Disponibles</b></h1>
     <div class="container">
         <div class="row mt-5 justify-content-center">
     {% for cliente in clientes %}
@@ -16,6 +28,6 @@
     {% endfor %}
         </div>
     </div>
-    <a class="btn btn-secondary btn-lg" href="/cliente/create/" role="button">Agregar Cliente</a>
+    <a class="btn btn-secondary btn-lg" href="/cliente/create/" role="button" style="background-color:#204d74;">Agregar Cliente</a>
     <a class="btn btn-secondary btn-lg" href="/cliente/buscar/" role="button" style="background-color:#204d74;">Buscar Cliente</a>
 {% endblock %}

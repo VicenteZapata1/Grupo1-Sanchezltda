@@ -2,13 +2,27 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from .models import Material,EPP,Herramienta,Insumo,Despunte
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.conf import settings
 from django.conf.urls.static import static
 from django.core.files.storage import FileSystemStorage
+from rest_framework import permissions
+from django.contrib.auth.mixins import UserPassesTestMixin
+from django.contrib.auth.models import Group
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import user_passes_test
 
 # Create your views here.
+
+urlpatterns = [
+    # ... the rest of your URLconf goes here ...
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+class EsMiembro(UserPassesTestMixin):
+    def test_func(self):
+        return self.request.user.groups.filter(name="Oficina").exists()
 
 
 class HomeMaterialesView(LoginRequiredMixin,TemplateView):
@@ -20,17 +34,17 @@ class DetalleMaterialView(LoginRequiredMixin,TemplateView):
         id=kwargs["id"]
         return render(request, 'inventario/material.html', {'material': Material.materiales.get(id=id)})
 
-class MaterialCreate(CreateView):
+class MaterialCreate(EsMiembro,CreateView):
     model = Material
     template_name='./inventario/material_form.html'
     fields = '__all__'
 
-class MaterialUpdate(UpdateView):
+class MaterialUpdate(EsMiembro,UpdateView):
     model = Material
     template_name='./inventario/material_form.html'
     fields = ['nombre','cantidad','largo','ancho','espesor']
 
-class MaterialDelete(DeleteView):
+class MaterialDelete(EsMiembro,DeleteView):
     model = Material
     template_name='./inventario/material_form.html'
     success_url = reverse_lazy('materiales')        
@@ -40,8 +54,10 @@ class Tipo:
         self.codigo=codigo
         self.nombre=nombre
         self.default=default
- 
+
+
 class HomeEPPView(LoginRequiredMixin,TemplateView):
+
     def generar_tipos(self):
         tipos=[]
         tipos.append(Tipo("","",1))
@@ -78,17 +94,17 @@ class DetalleEPPView(LoginRequiredMixin,TemplateView):
         id=kwargs["id"]
         return render(request, 'inventario/epp.html', {'epp': EPP.epps.get(id=id)})   
 
-class EPPCreate(CreateView):
+class EPPCreate(EsMiembro,CreateView):
     model = EPP
     template_name='./inventario/epp_form.html'
     fields = '__all__'
 
-class EPPUpdate(UpdateView):
+class EPPUpdate(EsMiembro,UpdateView):
     model = EPP
     template_name='./inventario/epp_form.html'
     fields = ['nombre','cantidad']
 
-class EPPDelete(DeleteView):
+class EPPDelete(EsMiembro,DeleteView):
     model = EPP
     template_name='./inventario/epp_form.html'
     success_url = reverse_lazy('epps')
@@ -102,17 +118,17 @@ class DetalleHerramientaView(LoginRequiredMixin,TemplateView):
         id=kwargs["id"]
         return render(request, 'inventario/herramienta.html', {'herramienta': Herramienta.herramientas.get(id=id)})
 
-class HerramientaCreate(CreateView):
+class HerramientaCreate(EsMiembro,CreateView):
     model = Herramienta
     template_name='./inventario/herramienta_form.html'
     fields = '__all__'
 
-class HerramientaUpdate(UpdateView):
+class HerramientaUpdate(EsMiembro,UpdateView):
     model = Herramienta
     template_name='./inventario/herramienta_form.html'
     fields = ['nombre','cantidad']
 
-class HerramientaDelete(DeleteView):
+class HerramientaDelete(EsMiembro,DeleteView):
     model = Herramienta
     template_name='./inventario/herramienta_form.html'
     success_url = reverse_lazy('herramientas')
@@ -126,17 +142,17 @@ class DetalleInsumoView(LoginRequiredMixin,TemplateView):
         id=kwargs["id"]
         return render(request, 'inventario/insumo.html', {'insumo': Insumo.insumos.get(id=id)})
 
-class InsumoCreate(CreateView):
+class InsumoCreate(EsMiembro,CreateView):
     model = Insumo
     template_name='./inventario/insumo_form.html'
     fields = '__all__'
 
-class InsumoUpdate(UpdateView):
+class InsumoUpdate(EsMiembro,UpdateView):
     model = Insumo
     template_name='./inventario/insumo_form.html'
     fields = ['nombre','medida','cantidad']    
 
-class InsumoDelete(DeleteView):
+class InsumoDelete(EsMiembro,DeleteView):
     model = Insumo
     template_name='./inventario/insumo_form.html'
     success_url = reverse_lazy('insumos')
@@ -150,29 +166,29 @@ class DetalleDespunteView(LoginRequiredMixin,TemplateView):
         id=kwargs["id"]
         return render(request, 'inventario/despunte.html', {'despunte': Despunte.despuntes.get(id=id)})
 
-class DespunteCreate(CreateView):
+class DespunteCreate(EsMiembro,CreateView):
     model = Despunte
     template_name='./inventario/despunte_form.html'
     fields = '__all__'
 
-class DespunteUpdate(UpdateView):
+class DespunteUpdate(EsMiembro,UpdateView):
     model = Despunte
     template_name='./inventario/despunte_form.html'
     fields = ['nombre','cantidad','largo','ancho','espesor']
 
-class DespunteDelete(DeleteView):
+class DespunteDelete(EsMiembro,DeleteView):
     model = Despunte
     template_name='./inventario/despunte_form.html'
     success_url = reverse_lazy('despuntes')
 
 
-class BuscarDespunte(TemplateView):
+class BuscarDespunte(EsMiembro,TemplateView):
     model = Despunte
     template_name='./inventario/despunte_buscar.html'
     fields = ['nombre','largo','ancho','espesor']
 
 
-class BuscarDespunteDetalle(TemplateView):
+class BuscarDespunteDetalle(EsMiembro,TemplateView):
     def post(self, request, **kwargs):
         nombre=request.POST.get("nombre")
         largo=request.POST.get("largo")
@@ -182,8 +198,9 @@ class BuscarDespunteDetalle(TemplateView):
         for dato in datos:
             print(dato)
         return render(request, 'inventario/despunte_detalle.html', {'despuntes':datos})
+        
 
-class BuscarEPP(TemplateView):
+class BuscarEPP(EsMiembro,TemplateView):
     model = EPP
     template_name='./inventario/epps.html'
     fields = ['nombre']

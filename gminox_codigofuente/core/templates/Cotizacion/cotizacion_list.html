@@ -1,10 +1,23 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>Cotizaciones Gminox</h2>
+
+<style>
+ body {
+  background-repeat: no-repeat;
+  background-size: 100%;
+} 
+
+</style>
+  {% load static %}
+<body background="{% static "images/taller.jpeg" %}" background-repeat: no-repeat;>
+</body>
+
+
+    <h1><b>Cotizaciones Gminox</b></h1>
 
     <p>
-        <a href="{% url 'uploadcotizacion' %}" class="btn btn-primary">Subir Cotizacion</a>
+        <a href="{% url 'uploadcotizacion' %}" class="btn btn-secondary btn-lg" style="background-color:#204d74;">Subir Cotizacion</a>
     </p>
 
     <table class="table">
@@ -21,7 +34,7 @@
                     <td>{{ cotizacion.NumeroCotizacion}}</td>
                     <td>{{ cotizacion.Cliente }}</td>
                     <td>
-                        <a href="{{ cotizacion.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">
+                        <a href="{{ cotizacion.pdf.url }}" class="btn btn-secondary btn-lg" target="_blank" style="background-color:#204d74;">
                             Descargar PDF
                         </a>
                     </td>

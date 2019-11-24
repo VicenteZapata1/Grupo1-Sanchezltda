@@ -7,37 +7,48 @@ from django.urls import reverse_lazy
 from django.conf import settings
 from django.conf.urls.static import static
 from django.core.files.storage import FileSystemStorage
+from rest_framework import permissions
+from django.contrib.auth.mixins import UserPassesTestMixin
+from django.contrib.auth.models import Group
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import user_passes_test
 
-class HomeClientesView(LoginRequiredMixin,TemplateView):
+
+class EsMiembro(UserPassesTestMixin):
+    def test_func(self):
+        return self.request.user.groups.filter(name="Oficina").exists()
+
+
+class HomeClientesView(LoginRequiredMixin,EsMiembro,TemplateView):
     def get(self, request, **kwargs):
         return render(request, 'administracion/clientes.html', {'clientes': Cliente.clientes.all()})
 
-class DetalleClienteView(LoginRequiredMixin,TemplateView):
+class DetalleClienteView(LoginRequiredMixin,EsMiembro,TemplateView):
     def get(self, request, **kwargs):
         id=kwargs["id"]
         return render(request, 'administracion/cliente.html', {'cliente': Cliente.clientes.get(id=id)})
-class ClienteCreate(CreateView):
+class ClienteCreate(EsMiembro,CreateView):
     model = Cliente
     template_name='./administracion/cliente_form.html'
     fields = '__all__'
 
-class ClienteUpdate(UpdateView):
+class ClienteUpdate(EsMiembro,UpdateView):
     model = Cliente
     template_name='./administracion/cliente_form.html'
     fields = ['representante', 'telefono_representante','email_representante','direccion']
 
-class ClienteDelete(DeleteView):
+class ClienteDelete(EsMiembro,DeleteView):
     model = Cliente
     template_name='./administracion/cliente_form.html'
     success_url = reverse_lazy('clientes')  
 
-class BuscarCliente(TemplateView):
+class BuscarCliente(EsMiembro,TemplateView):
     model = Cliente
     template_name='./administracion/cliente_buscar.html'
     fields = ['nombre','representante']
 
 
-class BuscarClienteDetalle(TemplateView):
+class BuscarClienteDetalle(EsMiembro,TemplateView):
     def post(self, request, **kwargs):
         nombre=request.POST.get("nombre")
         representante=request.POST.get("representante")    
@@ -46,36 +57,36 @@ class BuscarClienteDetalle(TemplateView):
             print(lista)
         return render(request, 'administracion/cliente_detalle.html', {'clientes':listas})
 
-class HomeProveedoresView(LoginRequiredMixin,TemplateView):
+class HomeProveedoresView(LoginRequiredMixin,EsMiembro,TemplateView):
     def get(self, request, **kwargs):
         return render(request, 'administracion/proveedores.html', {'proveedores': Proveedor.proveedores.all()})
 
-class DetalleProveedorView(LoginRequiredMixin,TemplateView):
+class DetalleProveedorView(LoginRequiredMixin,EsMiembro,TemplateView):
     def get(self, request, **kwargs):
         id=kwargs["id"]
         return render(request, 'administracion/proveedor.html', {'proveedor': Proveedor.proveedores.get(id=id)})
 
-class ProveedorCreate(CreateView):
+class ProveedorCreate(EsMiembro,CreateView):
     model = Proveedor
     template_name='./administracion/proveedor_form.html'
     fields = '__all__'
 
-class ProveedorUpdate(UpdateView):
+class ProveedorUpdate(EsMiembro,UpdateView):
     model = Proveedor
     template_name='./administracion/proveedor_form.html'
     fields = ['vendedor', 'telefono_vendedor','email_vendedor','direccion']
 
-class ProveedorDelete(DeleteView):
+class ProveedorDelete(EsMiembro,DeleteView):
     model = Proveedor
     template_name='./administracion/proveedor_form.html'
     success_url = reverse_lazy('proveedores')  
 
-class BuscarProveedor(TemplateView):
+class BuscarProveedor(EsMiembro,TemplateView):
     model = Proveedor
     template_name='./administracion/proveedor_buscar.html'
     fields = ['nombre','vendedor']        
 
-class BuscarProveedorDetalle(TemplateView):
+class BuscarProveedorDetalle(EsMiembro,TemplateView):
     def post(self, request, **kwargs):
         nombre=request.POST.get("nombre")
         vendedor=request.POST.get("vendedor")    

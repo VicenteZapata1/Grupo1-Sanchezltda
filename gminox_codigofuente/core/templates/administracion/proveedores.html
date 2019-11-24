@@ -1,7 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Proveedores Disponibles</h1>
+
+<style>
+ body {
+  background-repeat: no-repeat;
+  background-size: 100%;
+} 
+
+</style>
+  {% load static %}
+<body background="{% static "images/taller.jpeg" %}" background-repeat: no-repeat;>
+</body>
+
+
+    <h1><b>Proveedores Disponibles</b></h1>
     <div class="container">
         <div class="row mt-5 justify-content-center">
     {% for proveedor in proveedores %}
@@ -16,6 +29,6 @@
     {% endfor %}
         </div>
     </div>
-    <a class="btn btn-secondary btn-lg" href="/proveedor/create/" role="button">Agregar Proveedor</a>
+    <a class="btn btn-secondary btn-lg" href="/proveedor/create/" role="button" style="background-color:#204d74;">Agregar Proveedor</a>
     <a class="btn btn-secondary btn-lg" href="/proveedor/buscar/" role="button" style="background-color:#204d74;">Buscar Proveedor</a>
 {% endblock %}

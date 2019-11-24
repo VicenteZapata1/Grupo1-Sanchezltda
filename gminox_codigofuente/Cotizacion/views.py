@@ -5,7 +5,11 @@ from django.urls import reverse_lazy
 from .forms import CotizacionForm
 from .models import CotizacionGminox
 
+
 # Create your views here.
+
+
+
 class Upload_PDF(TemplateView):
     template_name ='upload_PDF'
 
