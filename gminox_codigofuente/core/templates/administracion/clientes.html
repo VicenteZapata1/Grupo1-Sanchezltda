@@ -16,18 +16,28 @@
     <h1><b>Clientes Disponibles</b></h1>
     <div class="container">
         <div class="row mt-5 justify-content-center">
+    <table class="table table-sm table-light">
+    <thead class="thead-dark" >
+      <tr>
+        <th scope="col" style="background-color:#204d74;">Cliente</th>
+        <th scope="col" style="background-color:#204d74;">Correo</th>
+      </tr>
+    </thead>
+
     {% for cliente in clientes %}
-        <div class="card" style="width: 18rem">
-            <div class="card-body">
-                <h5 class="card-title">{{ cliente.id }}</h5> 
-                <p class="card-text">{{ cliente.nombre }}</p>
-                
-                <a href="/cliente/{{ cliente.id }}/" class="card-link">Detalle</a>
-            </div>
-        </div>
+    <tbody>
+    <tr>
+        <!--<td><a class="card-title">{{ cliente.id }}</td> -->
+        <td><a class="card-link" href="/cliente/{{ cliente.id }}/">{{ cliente.nombre }}</td>
+        <td><a class="card-text">{{ cliente.email_cliente }}</td>
+    </tr>
+    </tbody>
     {% endfor %}
+    </table>
         </div>
     </div>
+    <br>
+  </br>
     <a class="btn btn-secondary btn-lg" href="/cliente/create/" role="button" style="background-color:#204d74;">Agregar Cliente</a>
     <a class="btn btn-secondary btn-lg" href="/cliente/buscar/" role="button" style="background-color:#204d74;">Buscar Cliente</a>
 {% endblock %}

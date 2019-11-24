@@ -7,7 +7,6 @@ from django.urls import reverse_lazy
 from django.conf import settings
 from django.conf.urls.static import static
 from django.core.files.storage import FileSystemStorage
-from rest_framework import permissions
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required
