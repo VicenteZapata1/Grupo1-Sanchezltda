@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Facturas de venta Gminox</h2>
+
+    <p>
+        <a href="{% url 'uploadfacturaventa' %}" class="btn btn-primary">Subir factura</a>
+    </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Cliente</th>
+                <th>Número</th>
+                <th>Fecha Emisión</th>
+                <th>Monto Neto</th>
+                <th>Monto Iva</th>
+                <th>Monto total</th>
+                <th>Descargar</th>
+            </tr>
+        </thead>
+        <body>
+            {% for factura in facturasventa %}
+                <tr>
+                    <td>{{ factura.Cliente }}</td>
+                    <td>{{ factura.NumeroFactura}}</td>
+                    <td>{{ factura.Fecha}}</td>
+                    <td>{{ factura.Monto}} </td>
+                    <td>{{ factura.Iva }} </td>
+                    <td>{{ factura.Total}} </td>
+                    <td>
+                        <a href="{{ factura.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">
+                            Descargar PDF
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </body>
+    </table>
+{% endblock %}
