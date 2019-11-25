@@ -57,12 +57,12 @@ def facturaventa_list(request):
 
 def upload_facturaventa(request):
     if request.method == 'POST': 
-        form = FacturaVentaForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
+        form2 = FacturaVentaForm(request.POST, request.FILES)
+        if form2.is_valid():
+            form2.save()
             return redirect('facturaventa_list')
     else:
-        form = FacturaCompraForm()
+        form2 = FacturaVentaForm()
     return render(request, 'facturas/uploadfacturaventa.html',{
-        'form': form
+        'form2': form2
     })
