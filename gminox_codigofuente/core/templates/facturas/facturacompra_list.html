@@ -1,22 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>Facturas de compra Gminox</h2>
+<style>
+ body {
+  background-repeat: no-repeat;
+  background-size: 100%;
+} 
 
+</style>
+  {% load static %}
+<body background="{% static "images/taller.jpeg" %}" background-repeat: no-repeat;>
+</body>
+
+    <h1><b>Facturas de Compra Gminox</b></h1>
+    <br>
     <p>
-        <a href="{% url 'uploadfacturacompra' %}" class="btn btn-primary">Subir factura</a>
+        <a href="{% url 'uploadfacturacompra' %}" class="btn btn-secondary btn-lg" style="background-color:#204d74;">Subir Factura</a>
     </p>
 
-    <table class="table">
-        <thead>
+    <table class="table table-sm table-light">
+        <thead class="thead-dark">
             <tr>
-                <th>Proveedor</th>
-                <th>Número</th>
-                <th>Fecha Emisión</th>
-                <th>Monto Neto</th>
-                <th>Monto Iva</th>
-                <th>Monto total</th>
-                <th>Descargar</th>
+                <th scope="col" style="background-color:#204d74;">Proveedor</th>
+                <th scope="col" style="background-color:#204d74;">Número</th>
+                <th scope="col" style="background-color:#204d74;">Fecha Emisión</th>
+                <th scope="col" style="background-color:#204d74;">Monto Neto</th>
+                <th scope="col" style="background-color:#204d74;">Monto Iva</th>
+                <th scope="col" style="background-color:#204d74;">Monto total</th>
+                <th scope="col" style="background-color:#204d74;">Descargar</th>
             </tr>
         </thead>
         <body>
@@ -29,7 +40,7 @@
                     <td>{{ factura.Iva }} </td>
                     <td>{{ factura.Total}} </td>
                     <td>
-                        <a href="{{ factura.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">
+                        <a href="{{ factura.pdf.url }}" class="btn btn-secondary btn-sm" target="_blank" style="background-color:#204d74;">
                             Descargar PDF
                         </a>
                     </td>

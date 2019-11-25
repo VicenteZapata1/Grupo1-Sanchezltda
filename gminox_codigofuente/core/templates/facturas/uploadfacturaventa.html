@@ -1,10 +1,32 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>Subir Facturas de venta Gminox</h2>
+<style>
+ body {
+  background-repeat: no-repeat;
+  background-size: 100%;
+} 
+
+</style>
+  {% load static %}
+<body background="{% static "images/taller.jpeg" %}" background-repeat: no-repeat;>
+</body>
+
+    <h1><b>Subir Facturas de Venta Gminox</b></h1>
+    <br>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form2.as_p }}
-        <button type="submit" class="btn btn-primary">Subir Factura</button>
+        <table class="table table-lg table-light">
+        <thead class="thead-dark" >
+        <tr>
+            <th scope="col" style="background-color:#204d74;"> </th>
+            <th scope="col" style="background-color:#204d74;"> </th>
+            <th scope="col" style="background-color:#204d74;"> </th>
+      </th>
+    </tr>
+        </thead>
+            {{ form2.as_table }}
+        </table>
+        <button type="submit" class="btn btn-secondary btn-lg" style="background-color:#204d74;">Subir Factura</button>
     </form>
 {% endblock %}
