@@ -28,6 +28,7 @@ def upload(request):
         uploaded_file = request.FILES['document']
         fs = FileSystemStorage()
         name = fs.save(uploaded_file.name, uploaded_file)#ruta del pdf
+        print("\n\n",name,"\n\n")
         context['url'] = fs.url(name)
      return render(request, 'facturas/upload.html', context)
 
